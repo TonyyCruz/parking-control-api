@@ -5,10 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 @Table(name = "TB_USER")
@@ -21,6 +18,12 @@ public class UserModel implements Serializable, UserDetails {
     private String userName;
     @Column(nullable = false)
     private String password;
+    @ManyToMany @JoinTable(
+            name = "TB_USERS_ROLES",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<RoleModel> roles;
 
     public UserModel() {
     }
@@ -39,10 +42,6 @@ public class UserModel implements Serializable, UserDetails {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
     public void setUserName(String userName) {
         this.userName = userName;
     }
@@ -57,7 +56,7 @@ public class UserModel implements Serializable, UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        return roles;
     }
 
     @Override
