@@ -26,4 +26,5 @@ VALUES ('09fcc3a4-506a-4fcb-a63b-59e471fdef1c', 'ROLE_ADMIN'),
 
 INSERT INTO tb_users_roles (user_id, role_id)
 VALUES ('544930c4-081c-4e23-93cf-60fc79ac3b28', '09fcc3a4-506a-4fcb-a63b-59e471fdef1c'),
-        ('544930c4-081c-4e23-93cf-60fc79ac3b28', '10130236-b22a-42c6-a9db-70b2228fe6bb');
+        ('544930c4-081c-4e23-93cf-60fc79ac3b28', '10130236-b22a-42c6-a9db-70b2228fe6bb'),
+        ('91ccc9e3-b9d6-462c-890b-fdd618543347', '10130236-b22a-42c6-a9db-70b2228fe6bb');
